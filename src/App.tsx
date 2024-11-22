@@ -10,9 +10,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <Toaster />
-      <Header />
       <Routes />
-      <Footer />
     </Provider>
   );
 }

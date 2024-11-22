@@ -7,7 +7,6 @@ import {
 } from "../interfaces/miscInterface";
 
 const Backdrop: React.FC<BackdropProps> = ({ onClick }) => {
-    console.log(onClick)
   return (
     <div
       className="h-screen w-screen bg-slate-400 bg-opacity-50 fixed z-10 top-0"

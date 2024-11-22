@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FormValuesInterface } from "../interfaces/authInterface";
+import { AuthFormValuesInterface } from "../interfaces/authInterface";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreState } from "../store/appStore";
 import { LIGHT_THEME, DARK_THEME } from "../utils/styles/styles";
@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 const Auth = () => {
   const [pageType, setPageType] = useState("SIGNUP");
   const themeState = useSelector((store: StoreState) => store.config.theme);
-  const formValues = useForm<FormValuesInterface>();
+  const formValues = useForm<AuthFormValuesInterface>();
   const theme = themeState === "LIGHT" ? LIGHT_THEME : DARK_THEME;
 
   const { register, handleSubmit, formState, watch } = formValues;
@@ -21,7 +21,6 @@ const Auth = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const { loading, error } = useSelector((state: StoreState) => state.admin);
 
   const toggleFormType = (type: string) => {
     formValues.reset();
