@@ -1,26 +1,41 @@
-import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
-import Auth from '../pages/Auth'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Auth from "../pages/Auth";
+import { useSelector } from "react-redux";
+import { StoreState } from "../store/appStore";
+import Dashboard from "../pages/Dashboard";
+import RootLayout from "../pages/RootLayout";
 
+const Routes = () => {
+  const loggedIn = useSelector((store:StoreState)=>store.admin.email)
 
-const appRouter = createBrowserRouter([
+  const appRouter = createBrowserRouter([
     {
-        element:<Auth />,
-        path:'/'
+      path: "/", // Root path with RootLayout
+      element: <RootLayout />, // Apply the RootLayout
+      children: [
+        {
+          index: true, // Default route under "/"
+          element: loggedIn ? <Dashboard /> : <Auth />,
+        },
+        {
+          path: "account/dashboard", 
+          element: loggedIn ? <Dashboard /> : <Auth />,
+        },
+        {
+          path: "account/dashboard", 
+          element: loggedIn ? <Dashboard /> : <Auth />,
+        },
+        {
+          path: "account/dashboard", 
+          element: loggedIn ? <Dashboard /> : <Auth />,
+        },
+      ],
     },
-    {
-        element:<Auth />,
-        path:'/account/auth'
-    }
-])
+  ]);
 
 
+  return <RouterProvider router={appRouter} />;
+};
 
-
-const routes = () => {
-  return (
-    <></>
-  )
-}
-
-export default routes
+export default Routes;
