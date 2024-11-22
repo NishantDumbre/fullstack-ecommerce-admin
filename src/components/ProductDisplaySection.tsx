@@ -7,7 +7,7 @@ import { CategoryFormValuesInterface } from "../interfaces/authInterface";
 import { useForm } from "react-hook-form";
 import { addProductCategory } from "../store/productSlice";
 
-const CategorySection = () => {
+const ProductDisplaySection = () => {
   const dispatch = useDispatch<AppDispatch>();
   const categories = useSelector(
     (store: StoreState) => store.product.categories
@@ -62,7 +62,7 @@ const CategorySection = () => {
       <div className={`w-5/12 h-full border-2 ${theme.border}`}>
         <ul className={`h-full w-full overflow-y-scroll p-5`}>
           {categories.map((item) => (
-            <CategoryListItem key={item.id} props={item} />
+            <CategoryListItem key={item.id} props={item}/>
           ))}
         </ul>
       </div>
@@ -70,4 +70,4 @@ const CategorySection = () => {
   );
 };
 
-export default CategorySection;
+export default ProductDisplaySection;

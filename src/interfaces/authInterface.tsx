@@ -16,4 +16,12 @@ export interface CategoryFormValuesInterface{
     category: string
 }
 
+export interface ProductFormValuesInterface{
+    name: string,
+    price: number,
+    description: string,
+    images: string,
+    category: string
+}
+
 export type ToggleFormType = (type:string) => void

@@ -1,9 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { StoreState } from "../store/appStore";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, StoreState } from "../store/appStore";
 import { LIGHT_THEME, DARK_THEME } from "../utils/styles/styles";
 import { NavbarPropsInterface } from "../interfaces/miscInterface";
 import NavList from "./NavList";
+
 
 const Navbar = ({ onToggleNav }: NavbarPropsInterface) => {
   const themeState = useSelector((store: StoreState) => store.config.theme);
